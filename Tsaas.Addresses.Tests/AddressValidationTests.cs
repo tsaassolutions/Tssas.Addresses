@@ -7,7 +7,7 @@ namespace Tsaas.Addresses.Tests
     public class AddressValidationTests
     {
         [Fact]
-        public void Constructor_WithValidRequiredFields_ShouldCreateAddress()
+        public void Construtor_ComCamposObrigatoriosValidos_DeveCriarEndereco()
         {
             // Arrange & Act
             var address = new Address(
@@ -32,7 +32,7 @@ namespace Tsaas.Addresses.Tests
         }
 
         [Fact]
-        public void Constructor_WithAllFields_ShouldCreateAddress()
+        public void Construtor_ComTodosCampos_DeveCriarEndereco()
         {
             // Arrange & Act
             var address = new Address(
@@ -69,7 +69,7 @@ namespace Tsaas.Addresses.Tests
         [InlineData("")]
         [InlineData("  ")]
         [InlineData(null)]
-        public void Constructor_WithEmptyStreet_ShouldThrowInvalidAddressException(string? street)
+        public void Construtor_ComRuaVazia_DeveLancarInvalidAddressException(string? street)
         {
             // Act & Assert
             var exception = Assert.Throws<InvalidAddressException>(() =>
@@ -91,7 +91,7 @@ namespace Tsaas.Addresses.Tests
         [InlineData("")]
         [InlineData("  ")]
         [InlineData(null)]
-        public void Constructor_WithEmptyDistrict_ShouldThrowInvalidAddressException(string? district)
+        public void Construtor_ComBairroVazio_DeveLancarInvalidAddressException(string? district)
         {
             // Act & Assert
             var exception = Assert.Throws<InvalidAddressException>(() =>
@@ -113,7 +113,7 @@ namespace Tsaas.Addresses.Tests
         [InlineData("")]
         [InlineData("  ")]
         [InlineData(null)]
-        public void Constructor_WithEmptyCity_ShouldThrowInvalidAddressException(string? city)
+        public void Construtor_ComCidadeVazia_DeveLancarInvalidAddressException(string? city)
         {
             // Act & Assert
             var exception = Assert.Throws<InvalidAddressException>(() =>
@@ -135,7 +135,7 @@ namespace Tsaas.Addresses.Tests
         [InlineData("")]
         [InlineData("  ")]
         [InlineData(null)]
-        public void Constructor_WithEmptyState_ShouldThrowInvalidAddressException(string? state)
+        public void Construtor_ComEstadoVazio_DeveLancarInvalidAddressException(string? state)
         {
             // Act & Assert
             var exception = Assert.Throws<InvalidAddressException>(() =>
@@ -157,7 +157,7 @@ namespace Tsaas.Addresses.Tests
         [InlineData("")]
         [InlineData("  ")]
         [InlineData(null)]
-        public void Constructor_WithEmptyCountry_ShouldThrowInvalidAddressException(string? country)
+        public void Construtor_ComPaisVazio_DeveLancarInvalidAddressException(string? country)
         {
             // Act & Assert
             var exception = Assert.Throws<InvalidAddressException>(() =>
@@ -179,7 +179,7 @@ namespace Tsaas.Addresses.Tests
         [InlineData("")]
         [InlineData("  ")]
         [InlineData(null)]
-        public void Constructor_WithEmptyCountryCode_ShouldThrowInvalidAddressException(string? countryCode)
+        public void Construtor_ComCodigoPaisVazio_DeveLancarInvalidAddressException(string? countryCode)
         {
             // Act & Assert
             var exception = Assert.Throws<InvalidAddressException>(() =>
@@ -201,7 +201,7 @@ namespace Tsaas.Addresses.Tests
         [InlineData("")]
         [InlineData("  ")]
         [InlineData(null)]
-        public void Constructor_WithEmptyZipCode_ShouldThrowInvalidAddressException(string? zipCode)
+        public void Construtor_ComCepVazio_DeveLancarInvalidAddressException(string? zipCode)
         {
             // Act & Assert
             var exception = Assert.Throws<InvalidAddressException>(() =>
@@ -223,7 +223,7 @@ namespace Tsaas.Addresses.Tests
         [InlineData("")]
         [InlineData("  ")]
         [InlineData(null)]
-        public void Constructor_WithEmptyOptionalFields_ShouldSetThemAsNull(string? emptyValue)
+        public void Construtor_ComCamposOpcionaisVazios_DeveDefinilosComoNull(string? emptyValue)
         {
             // Arrange & Act
             var address = new Address(
@@ -250,7 +250,7 @@ namespace Tsaas.Addresses.Tests
         }
 
         [Fact]
-        public void Constructor_ShouldTrimAllStringFields()
+        public void Construtor_DeveRemoverEspacosDeTodasAsStrings()
         {
             // Arrange & Act
             var address = new Address(
@@ -278,7 +278,7 @@ namespace Tsaas.Addresses.Tests
         }
 
         [Fact]
-        public void Constructor_ShouldNormalizeCountryCodeToUpperCase()
+        public void Construtor_DeveNormalizarCodigoPaisParaMaiusculas()
         {
             // Arrange & Act
             var address = new Address(
@@ -296,7 +296,7 @@ namespace Tsaas.Addresses.Tests
         }
 
         [Fact]
-        public void Constructor_ShouldRemoveZipCodeFormatting()
+        public void Construtor_DeveRemoverFormatacaoDoCep()
         {
             // Arrange & Act
             var address = new Address(
@@ -314,7 +314,7 @@ namespace Tsaas.Addresses.Tests
         }
 
         [Fact]
-        public void FormatZipCode_WithBrazilianZipCode_ShouldReturnFormattedZipCode()
+        public void FormatarCep_ComCepBrasileiro_DeveRetornarCepFormatado()
         {
             // Arrange
             var address = new Address(
@@ -335,7 +335,7 @@ namespace Tsaas.Addresses.Tests
         }
 
         [Fact]
-        public void StreetDisplay_WithType_ShouldCombineTypeAndStreet()
+        public void ExibicaoRua_ComTipo_DeveCombinarTipoERua()
         {
             // Arrange
             var address = new Address(
@@ -357,7 +357,7 @@ namespace Tsaas.Addresses.Tests
         }
 
         [Fact]
-        public void StreetDisplay_WithoutType_ShouldReturnOnlyStreet()
+        public void ExibicaoRua_SemTipo_DeveRetornarApenasRua()
         {
             // Arrange
             var address = new Address(
@@ -378,7 +378,7 @@ namespace Tsaas.Addresses.Tests
         }
 
         [Fact]
-        public void FullAddress_WithAllFields_ShouldReturnCompleteFormattedAddress()
+        public void EnderecoCompleto_ComTodosCampos_DeveRetornarEnderecoFormatadoCompleto()
         {
             // Arrange
             var address = new Address(
@@ -402,7 +402,7 @@ namespace Tsaas.Addresses.Tests
         }
 
         [Fact]
-        public void FullAddress_WithoutNumber_ShouldShowSN()
+        public void EnderecoCompleto_SemNumero_DeveMostrarSN()
         {
             // Arrange
             var address = new Address(
@@ -425,7 +425,7 @@ namespace Tsaas.Addresses.Tests
         }
 
         [Fact]
-        public void ToString_ShouldReturnFullAddress()
+        public void ToString_DeveRetornarEnderecoCompleto()
         {
             // Arrange
             var address = new Address(
@@ -448,7 +448,7 @@ namespace Tsaas.Addresses.Tests
         }
 
         [Fact]
-        public void Equals_WithSameValues_ShouldReturnTrue()
+        public void Equals_ComMesmosValores_DeveRetornarVerdadeiro()
         {
             // Arrange
             var address1 = new Address(
@@ -482,7 +482,7 @@ namespace Tsaas.Addresses.Tests
         }
 
         [Fact]
-        public void Equals_WithDifferentValues_ShouldReturnFalse()
+        public void Equals_ComValoresDiferentes_DeveRetornarFalso()
         {
             // Arrange
             var address1 = new Address(
@@ -516,7 +516,7 @@ namespace Tsaas.Addresses.Tests
         }
 
         [Fact]
-        public void Equals_WithNull_ShouldReturnFalse()
+        public void Equals_ComNull_DeveRetornarFalso()
         {
             // Arrange
             var address = new Address(
@@ -536,7 +536,7 @@ namespace Tsaas.Addresses.Tests
         }
 
         [Fact]
-        public void GetHashCode_WithSameValues_ShouldReturnSameHashCode()
+        public void GetHashCode_ComMesmosValores_DeveRetornarMesmoHashCode()
         {
             // Arrange
             var address1 = new Address(
