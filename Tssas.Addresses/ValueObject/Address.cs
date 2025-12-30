@@ -8,19 +8,82 @@ namespace Tssas.ValueObjects.Address
     /// </summary>
     public sealed class Address : IEquatable<Address>
     {
+        /// <summary>
+        /// Gets the type of the street (e.g., "Rua", "Avenida").
+        /// </summary>
         public string? Type { get; }
+
+        /// <summary>
+        /// Gets the street name.
+        /// </summary>
         public string Street { get; }
+
+        /// <summary>
+        /// Gets the address number.
+        /// </summary>
         public string? Number { get; }
+
+        /// <summary>
+        /// Gets the district or neighborhood name.
+        /// </summary>
         public string District { get; }
+
+        /// <summary>
+        /// Gets the complement information (e.g., apartment number, building name).
+        /// </summary>
         public string? Complement { get; }
+
+        /// <summary>
+        /// Gets the city name.
+        /// </summary>
         public string City { get; }
+
+        /// <summary>
+        /// Gets the state or province name.
+        /// </summary>
         public string State { get; }
+
+        /// <summary>
+        /// Gets the country name.
+        /// </summary>
         public string Country { get; }
+
+        /// <summary>
+        /// Gets the ISO 3166-1 alpha-2 country code.
+        /// </summary>
         public string CountryCode { get; }
+
+        /// <summary>
+        /// Gets the ZIP code or postal code.
+        /// </summary>
         public string ZipCode { get; }
+
+        /// <summary>
+        /// Gets the IBGE municipality code (Brazilian municipalities).
+        /// </summary>
         public string? MunicipalityIbge { get; }
+
+        /// <summary>
+        /// Gets the IBGE state code (Brazilian states).
+        /// </summary>
         public string? StateIbge { get; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Address"/> class.
+        /// </summary>
+        /// <param name="street">The street name (required).</param>
+        /// <param name="district">The district or neighborhood name (required).</param>
+        /// <param name="city">The city name (required).</param>
+        /// <param name="state">The state or province name (required).</param>
+        /// <param name="country">The country name (required).</param>
+        /// <param name="countryCode">The ISO 3166-1 alpha-2 country code (required).</param>
+        /// <param name="zipCode">The ZIP code or postal code (required).</param>
+        /// <param name="type">The street type (optional).</param>
+        /// <param name="number">The address number (optional).</param>
+        /// <param name="municipalityIbge">The IBGE municipality code (optional).</param>
+        /// <param name="stateIbge">The IBGE state code (optional).</param>
+        /// <param name="complement">The complement information (optional).</param>
+        /// <exception cref="InvalidAddressException">Thrown when any required field is null or whitespace.</exception>
         public Address(
             string street,
             string district,
@@ -78,17 +141,30 @@ namespace Tssas.ValueObjects.Address
         /// </summary>
         public string StreetDisplay => AddressFormatter.FormatStreetDisplay(Type, Street);
 
+        /// <summary>
+        /// Formats the ZIP code to the Brazilian pattern (xxxxx-xxx).
+        /// </summary>
+        /// <returns>The formatted ZIP code.</returns>
         public string FormatZipCode()
         {
             return AddressFormatter.FormatBrazilianZipCode(ZipCode);
         }
 
+        /// <summary>
+        /// Returns the complete formatted address as a single string.
+        /// </summary>
+        /// <returns>The full address string including all components.</returns>
         public string FullAddress()
         {
             return AddressFormatter.BuildFullAddress(
                 Type, Street, Number, Complement, District, City, State, Country, ZipCode);
         }
 
+        /// <summary>
+        /// Determines whether the specified <see cref="Address"/> is equal to the current address.
+        /// </summary>
+        /// <param name="other">The address to compare with the current address.</param>
+        /// <returns>true if the specified address is equal to the current address; otherwise, false.</returns>
         public bool Equals(Address? other)
         {
             if (other is null) return false;
@@ -108,11 +184,20 @@ namespace Tssas.ValueObjects.Address
                    StateIbge == other.StateIbge;
         }
 
+        /// <summary>
+        /// Determines whether the specified object is equal to the current address.
+        /// </summary>
+        /// <param name="obj">The object to compare with the current address.</param>
+        /// <returns>true if the specified object is equal to the current address; otherwise, false.</returns>
         public override bool Equals(object? obj)
         {
             return obj is Address other && Equals(other);
         }
 
+        /// <summary>
+        /// Returns the hash code for this address.
+        /// </summary>
+        /// <returns>A 32-bit signed integer hash code.</returns>
         public override int GetHashCode()
         {
             var hash = new HashCode();
@@ -131,16 +216,32 @@ namespace Tssas.ValueObjects.Address
             return hash.ToHashCode();
         }
 
+        /// <summary>
+        /// Determines whether two specified addresses have the same value.
+        /// </summary>
+        /// <param name="left">The first address to compare, or null.</param>
+        /// <param name="right">The second address to compare, or null.</param>
+        /// <returns>true if the value of left is the same as the value of right; otherwise, false.</returns>
         public static bool operator ==(Address? left, Address? right)
         {
             return Equals(left, right);
         }
 
+        /// <summary>
+        /// Determines whether two specified addresses have different values.
+        /// </summary>
+        /// <param name="left">The first address to compare, or null.</param>
+        /// <param name="right">The second address to compare, or null.</param>
+        /// <returns>true if the value of left is different from the value of right; otherwise, false.</returns>
         public static bool operator !=(Address? left, Address? right)
         {
             return !Equals(left, right);
         }
 
+        /// <summary>
+        /// Returns a string representation of the address.
+        /// </summary>
+        /// <returns>The full formatted address string.</returns>
         public override string ToString()
         {
             return FullAddress();

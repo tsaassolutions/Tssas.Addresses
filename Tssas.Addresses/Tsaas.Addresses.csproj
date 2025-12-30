@@ -4,6 +4,29 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    
+    <!-- NuGet Package Properties -->
+    <PackageId>Tssas.Addresses</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>TSAAS Solutions</Authors>
+    <Company>TSAAS Solutions</Company>
+    <Product>Tssas.Addresses</Product>
+    <Description>A library for handling address value objects with validation and formatting capabilities.</Description>
+    <PackageTags>address;value-object;ddd;domain-driven-design</PackageTags>
+    <PackageProjectUrl>https://github.com/tsaassolutions/Tssas.Addresses</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/tsaassolutions/Tssas.Addresses</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    
+    <!-- Generate documentation XML -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\" Condition="Exists('..\README.md')" />
+  </ItemGroup>
 
 </Project>
