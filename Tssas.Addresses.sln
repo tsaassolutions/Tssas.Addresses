@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36811.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tsaas.Addresses", "Tssas.Addresses\Tsaas.Addresses.csproj", "{D486105A-9EE3-4DA1-8E0E-FA8650265429}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tsaas.Addresses.Tests", "Tsaas.Addresses.Tests\Tsaas.Addresses.Tests.csproj", "{910A4487-32CF-498A-91B4-37D65D34F494}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D486105A-9EE3-4DA1-8E0E-FA8650265429}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D486105A-9EE3-4DA1-8E0E-FA8650265429}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D486105A-9EE3-4DA1-8E0E-FA8650265429}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D486105A-9EE3-4DA1-8E0E-FA8650265429}.Release|Any CPU.Build.0 = Release|Any CPU
+		{910A4487-32CF-498A-91B4-37D65D34F494}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{910A4487-32CF-498A-91B4-37D65D34F494}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{910A4487-32CF-498A-91B4-37D65D34F494}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{910A4487-32CF-498A-91B4-37D65D34F494}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FCAD140E-28CD-4C1B-B4A1-085363D879EF}
+	EndGlobalSection
+EndGlobal
